@@ -110,7 +110,6 @@ dateModule.today.getDate() >
 addFullMonth(viewMonth);
 
 // create a printView
-
 printButton.addEventListener("click", function () {
   //  this function call the other functions: fillBaseDatas() & fillDates(), latter w/ datesArrey
 
@@ -136,37 +135,6 @@ printButton.addEventListener("click", function () {
     dateModule.dateYearAndNumericMonthView
   )}_${basedatas.name}`;
 
-  // const pdfDoc = new jsPDF();
-  // pdfDoc.setFontSize(16);
-  // pdfDoc.setFont("calibri", "bold");
-  // pdfDoc.text(`Munkába járás elszámolása`, 105, 15, "center"); // accounting for going to work
-  // pdfDoc.setFontSize(11);
-  // pdfDoc.setFont("calibri", "normal");
-
-  /* // year and month of the print of accounting 
-  pdfDoc.text(
-    `${viewMonth.toLocaleDateString("hu-HU", dateModule.dateYearAndMonthViev)}`,
-    105,
-    20,
-    "center"
-  ); */
-
-  /*  pdfDoc.text(
-     `Az elszámolás alapja a 39/2010. (II. 26.) és a 16/2023. (I. 27.) számú Kormányrendeletek, mely alapján gépjárműre fizethető 30,- Ft/km költségtérítés.`,
-     15,
-     30, {
-       maxWidth: 190,
-       align: "left",
-     }
-   ); */
-
-  /* // name & city, address
-  pdfDoc.text(`Név: ${basedatas.name}`, 15, 40);
-  pdfDoc.text(`lakcím: ${basedatas.city}, ${basedatas.address}`, 105, 40);
-  // car & car plate
-  pdfDoc.text(`személygépkocsi típusa: ${basedatas.vehicle}`, 15, 44);
-  pdfDoc.text(`forgalmi rendszám: ${basedatas.plate}`, 105, 44); */
-
   // table with daily home-work distance datas to printing
   const ptable = datesArray.map((date) => [
     new Date(date).toLocaleDateString("hu-HU", dateModule.dateLongView),
@@ -178,98 +146,15 @@ printButton.addEventListener("click", function () {
         })}`,
   ]);
 
-  /*  pdfDoc.autoTable({
-     margin: {
-       top: 50
-     },
-     styles: {
-       font: "calibri",
-       lineWidth: .5,
-       lineColor: [75, 75, 75],
-       halign: 'center', // itt kell általánosan igazítani a táblázat celláinak tartalmát
-     },
-     headStyles: {
-       fillColor: [75, 75, 75],
-       halign: 'center',
-     },
-     footStyles: {
-       fillColor: [75, 75, 75],
-       halign: 'right',
-     },
-     theme: "grid",
-     tableLineWidth: .5,
-     tableLineColor: [75, 75, 75],
-     // Kell az oszlopok definiálása, ha azok adatait igazítani szeretnéd
-     columns: [{
-         dataKey: 'dátum',
-         header: 'dátum'
-       },
-       {
-         dataKey: 'indulás - érkezés (helységnév)',
-         header: 'indulás - érkezés (helységnév)'
-       },
-       {
-         dataKey: 'Km/fő',
-         header: 'Km/fő'
-       },
-       {
-         dataKey: 'összeg',
-         header: 'összeg'
-       },
-     ],
-     columnStyles: {
-       'Km/fő': {
-         halign: 'right',
-       },
-       összeg: {
-         halign: 'right',
-       },
-     },
-     head: [
-       ["dátum", "indulás - érkezés (helységnév)", "Km/fő", "összeg"]
-     ],
-     body: ptable,
-     foot: [
-       [``, `összesen:`, ``, `${sumTotal.toLocaleString('hu-HU', {
-             style: 'currency',
-             currency: 'HUF'
-         })}`]
-     ],
-   }); */
-
-  /* // keltezés
-  pdfDoc.text(
-    `Hévíz, ${printDate.toLocaleDateString("hu-HU", dateModule.dateLongView)}`,
-    15,
-    250 // mm-nyire a papír tetejétől (az álló A/4-es papír 297 mm magas)
-  ); */
-
-  /* // aláírások
-  pdfDoc.text(`.........................................`, 60, 270, "center");
-  pdfDoc.text(`.........................................`, 150, 270, "center");
-  pdfDoc.text(`munkahelyi vezető`, 60, 275, "center");
-  pdfDoc.text(`munkavállaló aláírása`, 150, 275, "center"); */
-
-  // pdfDoc.save(`${pdfName}.pdf`);
-
+  // add and fill printObject to call printPdf function with them
   const printObject = {};
-
-  // tableRowSum: this.tableRowSum,
   printObject.tableRowSum = tableRowSum;
-  // sumTotal: this.sumTotal,
   printObject.sumTotal = sumTotal;
-  // pdfName: this.pdfName,
   printObject.pdfName = pdfName;
-  // viewMonth: this.vm,
   printObject.viewMonth = viewMonth;
-  // basedatas: this.basedatas,
   printObject.basedatas = basedatas;
-  // ptable: this.ptable,
   printObject.ptable = ptable;
-  // printDate,
   printObject.printDate = printDate;
-
-  // console.log(printObject);
 
   printPdf(printObject);
 
