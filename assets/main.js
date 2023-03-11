@@ -146,15 +146,16 @@ printButton.addEventListener("click", function () {
         })}`,
   ]);
 
-  // add and fill printObject to call printPdf function with them
-  const printObject = {};
-  printObject.tableRowSum = tableRowSum;
-  printObject.sumTotal = sumTotal;
-  printObject.pdfName = pdfName;
-  printObject.viewMonth = viewMonth;
-  printObject.basedatas = basedatas;
-  printObject.ptable = ptable;
-  printObject.printDate = printDate;
+
+  const printObject = {
+    tableRowSum: tableRowSum,
+    sumTotal: sumTotal,
+    pdfName: pdfName,
+    viewMonth: viewMonth,
+    basedatas: basedatas,
+    ptable: ptable,
+    printDate: printDate,
+  };
 
   printPdf(printObject);
 
