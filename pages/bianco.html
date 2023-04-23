@@ -8,7 +8,7 @@
     <title>Útiköltség elszámolás</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
-    <link rel="stylesheet" href="./assets/style.css" />
+    <link rel="stylesheet" href="../assets/style.css" />
     <link rel="manifest" href="manifest.json" />
     <meta name="theme-color" content="#3367D6" />
     <link rel="apple-touch-icon" href="./images/icons-512.png" />
@@ -28,6 +28,17 @@
                 <p></p>
                 <form action="">
                     <div class="basedatas">
+                        <div class="form-group">
+                            <label for="yearSelect">Adja meg a kívánt évet<small class="compulsory">*</small></label>
+                            <input type="text" class="form-control print yearSelect" id="yearSelect"
+                                placeholder="Kérem, adja meg, hogy melyik évre tölti ki a nyomtatványt" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="monthSelect">Adja meg a kívánt hónapot<small
+                                    class="compulsory">*</small></label>
+                            <input type="text" class="form-control print monthSelect" id="monthSelect"
+                                placeholder="Kérem, adja meg, hogy melyik hónapra tölti ki a nyomtatványt" required />
+                        </div>
                         <div class="form-group">
                             <label for="name">Név<small class="compulsory">*</small></label>
                             <input type="text" class="form-control print name" id="name"
@@ -76,12 +87,21 @@
                             <tbody class="dayspicker"></tbody>
                         </table>
                     </div>
-                    <button type="submit" class="btn btn-outline-primary printbutton">
-                        Nyomtat(ható .PDF készítése)
-                    </button>
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <button type="submit" class="btn btn-outline-primary printbutton">
+                            Nyomtat(ható .PDF készítése)
+                        </button>
+                    </div>
                 </form>
             </div>
             <div class="col-3"></div>
+        </div>
+        <div class="index d-grid gap-2 d-md-flex justify-content-md-end">
+            <a href="../index.html">
+                <button class="btn btn-outline-light">
+                    Vissza a főoldalra
+                </button>
+            </a>
         </div>
     </main>
 
@@ -92,8 +112,8 @@
         integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous">
     </script>
     <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
-    <script src="./assets/autotable/jspdf.plugin.autotable.js"></script>
-    <script type="module" src="./assets/main.js"></script>
+    <script src="../assets/autotable/jspdf.plugin.autotable.js"></script>
+    <script type="module" src="../assets/main.js"></script>
 </body>
 
 </html>
