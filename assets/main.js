@@ -1,34 +1,25 @@
 "use strict";
 
 // jsPDF import as Global module format
-const {
-  jsPDF
-} = window.jspdf;
+const { jsPDF } = window.jspdf;
 
 // Add jspdf-autotable as plugin
 import "./autotable/jspdf.plugin.autotable.js";
 
 // import from config
-import {
-  workCity,
-  pricePerKm
-} from "./config.js";
+import { workCity, pricePerKm } from "./config.js";
 
 //Namespace import of date.js module
 import * as dateModule from "./date.js";
 // usage example: const actualMonth = dateModule.actualMonth();
 
-import {
-  createAnyElement
-} from "./html.js";
+import { createAnyElement } from "./html.js";
 
 import * as calibri from "./fonts/calibri-normal.js";
 import * as calibribold from "./fonts/calibri-bold.js";
 
 // import * as pdf from "./createpdf.js";
-import {
-  printPdf
-} from "./createpdf.js";
+import { printPdf } from "./createpdf.js";
 
 // basedatas object declaration
 const basedatas = {
@@ -42,6 +33,9 @@ const basedatas = {
 
 // select some HTML element
 const printButton = document.querySelector(".printbutton");
+const queryYear = document.querySelector(".yearSelect");
+const queryMonth = document.querySelector(".monthSelect");
+queryYear.defaultValue = new Date().getFullYear();
 
 // Arrow function to add the selected month's dates w/ checkboxes to HTML
 const addFullMonth = (month) => {
@@ -99,14 +93,41 @@ const addFullMonth = (month) => {
 // Adding viewMonth by defining which month is selected
 let viewMonth;
 dateModule.today.getDate() >
-  new Date(
-    dateModule.today.getFullYear(),
-    dateModule.today.getMonth(),
-    15
-  ).getDate() ?
-  (viewMonth = dateModule.actualMonth) :
-  (viewMonth = dateModule.beforeMonth);
+new Date(
+  dateModule.today.getFullYear(),
+  dateModule.today.getMonth(),
+  15
+).getDate()
+  ? (viewMonth = dateModule.actualMonth)
+  : (viewMonth = dateModule.beforeMonth);
 
+// Set viewMonth by changing the month selection in the bianco.html
+/* 
+const selectElement = document.querySelector(".ice-cream");
+const result = document.querySelector(".result");
+
+selectElement.addEventListener("change", (event) => {
+  result.textContent = `You like ${event.target.value}`;
+});
+ */
+queryMonth.addEventListener("change", (event) => {
+  /* 
+  megváltozott
+  ? állítsa be a választott év és hónap szerint:
+  : különben ha kisebb, mint 15.
+  ? akkor legyen az mostani dátumot megelőző hónap
+  : egyébként az aktuális hónap
+   */
+  let year = 0,
+    month = 0,
+    month2 = 0;
+  // month = event.target.value;
+  month2 = queryMonth.value;
+  year = queryYear.value;
+  console.log(year, month2);
+});
+
+// Még az addFullMonth hívása előtt kell beállítanod a keresendő hónapot!!!
 addFullMonth(viewMonth);
 
 // create a printView
@@ -126,9 +147,9 @@ printButton.addEventListener("click", function () {
 
   let sumTotal = datesArray.length * homeWorkDistance * pricePerKm * 2;
 
-  new Date(datesArray[datesArray.length - 1]) > dateModule.today ?
-    (printDate = new Date(datesArray[datesArray.length - 1])) :
-    (printDate = dateModule.today);
+  new Date(datesArray[datesArray.length - 1]) > dateModule.today
+    ? (printDate = new Date(datesArray[datesArray.length - 1]))
+    : (printDate = dateModule.today);
 
   pdfName = `Útiköltség_${viewMonth.toLocaleDateString(
     "hu-HU",
@@ -140,12 +161,11 @@ printButton.addEventListener("click", function () {
     new Date(date).toLocaleDateString("hu-HU", dateModule.dateLongView),
     `${basedatas.city} - ${workCity} - ${basedatas.city}`,
     `${basedatas.homeWorkDistance * 2}`,
-    `${tableRowSum.toLocaleString('hu-HU', {
-            style: 'currency',
-            currency: 'HUF'
-        })}`,
+    `${tableRowSum.toLocaleString("hu-HU", {
+      style: "currency",
+      currency: "HUF",
+    })}`,
   ]);
-
 
   const printObject = {
     tableRowSum: tableRowSum,
@@ -158,7 +178,6 @@ printButton.addEventListener("click", function () {
   };
 
   printPdf(printObject);
-
 });
 
 const fillBaseDatas = () => {
