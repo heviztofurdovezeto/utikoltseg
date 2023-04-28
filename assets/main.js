@@ -35,6 +35,7 @@ const basedatas = {
 const printButton = document.querySelector(".printbutton");
 const queryYear = document.querySelector(".yearSelect");
 const queryMonth = document.querySelector(".monthSelect");
+const querySelections = document.querySelectorAll(".odselect");
 queryYear.defaultValue = new Date().getFullYear();
 
 // Arrow function to add the selected month's dates w/ checkboxes to HTML
@@ -125,6 +126,7 @@ queryMonth.addEventListener("change", (event) => {
   month2 = queryMonth.value;
   year = queryYear.value;
   console.log(year, month2);
+  console.log(event);
 });
 
 // Még az addFullMonth hívása előtt kell beállítanod a keresendő hónapot!!!
