@@ -143,14 +143,17 @@ function handleDateChange(event) {
 */
 
 querySelections.forEach((input) => {
-  input.addEventListener("change", logToConsole);
+  input.addEventListener(
+    "change",
+    console.log(document.querySelector(".monthSelect").value)
+  );
 });
 
-const logToConsole = (event) => {
-  const year = queryYear.value;
-  const month = queryMonth.value;
-  console.log(year, month);
-};
+// const logToConsole = (event) => {
+//   const year = queryYear.value;
+//   const month = queryMonth.value;
+//   console.log(year, month);
+// };
 
 // Még az addFullMonth hívása előtt kell beállítanod a keresendő hónapot!!!
 addFullMonth(viewMonth);
