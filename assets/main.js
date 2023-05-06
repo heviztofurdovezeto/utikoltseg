@@ -43,9 +43,11 @@ const addFullMonth = (month) => {
   let tableHeadMonth = document.querySelector(".dayOfMonthColumn");
   let tableBody = document.querySelector(".dayspicker");
 
+  // nullázod a táblázat html elemeit
   tableHeadMonth.textContent = "";
   tableBody.textContent = "";
 
+  // táblázat fejléc beállítása
   tableHeadMonth.insertAdjacentText(
     "beforeend",
     `${new Date(month.getFullYear(), month.getMonth()).toLocaleDateString(
@@ -54,6 +56,7 @@ const addFullMonth = (month) => {
     )}`
   );
 
+  // táblázat sorainak elkészítése
   for (let i = 1; i <= dateModule.monthLength(month); i = i + 1) {
     // adott sorhoz tartozó dátum készítése és változóhoz rendelése
     let dpdate = new Date(month.getFullYear(), month.getMonth(), i);
@@ -105,74 +108,27 @@ new Date(
   ? (viewMonth = dateModule.actualMonth)
   : (viewMonth = dateModule.beforeMonth);
 
-// Set viewMonth by changing the month selection in the bianco.html
-/* 
-const selectElement = document.querySelector(".ice-cream");
-const result = document.querySelector(".result");
-
-selectElement.addEventListener("change", (event) => {
-  result.textContent = `You like ${event.target.value}`;
-});
- */
-// queryMonth.addEventListener("change", (event) => {
-//   /*
-//   megváltozott
-//   ? állítsa be a választott év és hónap szerint:
-//   : különben ha kisebb, mint 15.
-//   ? akkor legyen az mostani dátumot megelőző hónap
-//   : egyébként az aktuális hónap
-//    */
-//   let year = 0,
-//     month = 0,
-//     month2 = 0;
-//   // month = event.target.value;
-//   month2 = queryMonth.value;
-//   year = queryYear.value;
-//   console.log(year, month2);
-//   console.log(event);
-// });
-
-/* 
-dateInputs.forEach((input) => {
-  input.addEventListener('change', handleDateChange);
-});
-
-function handleDateChange(event) {
-  const year = document.getElementById('year').value;
-  const month = document.getElementById('month').value;
-  console.log(`Selected year: ${year}, Selected month: ${month}`);
-  // Add your custom logic here to handle the year and month change event
-}
-*/
-
+// Az 'change' eseménynél figyelt (input) elemek kiválasztása
 const querySelections = document.querySelectorAll(".odselect");
 
+// 'change' esemény hozzárendelése minden kívánt input elemhez
 querySelections.forEach((input) => {
   input.addEventListener(
     "change",
-    // console.log(document.querySelector(".monthSelect").value)
+    // callback funkció átadása, hogy mi történjen a chaneg esemény bekövetkeztekor
     handleDateChange
   );
 });
 
-// const logToConsole = (event) => {
-//   const year = queryYear.value;
-//   const month = queryMonth.value;
-//   console.log(year, month);
-// };
 function handleDateChange(event) {
   const year = document.getElementById("yearSelect").value;
   const month = document.getElementById("monthSelect").value;
-  // console.log(`Selected year: ${year}, Selected month: ${month}`);
   viewMonth = new Date(year, month, 1);
-  // addFullMonth(new Date(year, month, 1));
-  console.log(viewMonth);
   addFullMonth(viewMonth);
-  // Add your custom logic here to handle the year and month change event
 }
 
 // Még az addFullMonth hívása előtt kell beállítanod a keresendő hónapot!!!
-// addFullMonth(viewMonth);
+addFullMonth(viewMonth);
 
 // create a printView
 printButton.addEventListener("click", function () {
