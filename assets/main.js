@@ -35,13 +35,16 @@ const basedatas = {
 const printButton = document.querySelector(".printbutton");
 const queryYear = document.querySelector(".yearSelect");
 const queryMonth = document.querySelector(".monthSelect");
-const querySelections = document.querySelectorAll(".odselect");
+// const querySelections = document.querySelectorAll(".odselect");
 queryYear.defaultValue = new Date().getFullYear();
 
 // Arrow function to add the selected month's dates w/ checkboxes to HTML
 const addFullMonth = (month) => {
   let tableHeadMonth = document.querySelector(".dayOfMonthColumn");
   let tableBody = document.querySelector(".dayspicker");
+
+  tableHeadMonth.textContent = "";
+  tableBody.textContent = "";
 
   tableHeadMonth.insertAdjacentText(
     "beforeend",
@@ -142,10 +145,13 @@ function handleDateChange(event) {
 }
 */
 
+const querySelections = document.querySelectorAll(".odselect");
+
 querySelections.forEach((input) => {
   input.addEventListener(
     "change",
-    console.log(document.querySelector(".monthSelect").value)
+    // console.log(document.querySelector(".monthSelect").value)
+    handleDateChange
   );
 });
 
@@ -154,9 +160,19 @@ querySelections.forEach((input) => {
 //   const month = queryMonth.value;
 //   console.log(year, month);
 // };
+function handleDateChange(event) {
+  const year = document.getElementById("yearSelect").value;
+  const month = document.getElementById("monthSelect").value;
+  // console.log(`Selected year: ${year}, Selected month: ${month}`);
+  viewMonth = new Date(year, month, 1);
+  // addFullMonth(new Date(year, month, 1));
+  console.log(viewMonth);
+  addFullMonth(viewMonth);
+  // Add your custom logic here to handle the year and month change event
+}
 
 // Még az addFullMonth hívása előtt kell beállítanod a keresendő hónapot!!!
-addFullMonth(viewMonth);
+// addFullMonth(viewMonth);
 
 // create a printView
 printButton.addEventListener("click", function () {
