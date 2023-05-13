@@ -31,6 +31,51 @@
           <p></p>
           <form action="">
             <div class="basedatas">
+              <div class="hidden yearAndMonthSelect">
+                <div class="form-group">
+                  <label for="yearSelect"
+                    >Adja meg a kívánt évet<small class="compulsory"
+                      >*</small
+                    ></label
+                  >
+                  <input
+                    type="number"
+                    class="form-control print yearSelect odselect"
+                    id="yearSelect"
+                    min="2022"
+                    placeholder="Kérem, adja meg, hogy melyik évre tölti ki a nyomtatványt"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="monthSelect"
+                    >Adja meg a kívánt hónapot<small class="compulsory"
+                      >*</small
+                    ></label
+                  >
+                  <select
+                    type="text"
+                    class="form-select print monthSelect odselect"
+                    id="monthSelect"
+                    placeholder="Kérem, válassza ki, hogy melyik hónapra tölti ki a nyomtatványt"
+                    required
+                  >
+                    <option value="">Hónap kiválasztása</option>
+                    <option value="0">január</option>
+                    <option value="1">február</option>
+                    <option value="2">március</option>
+                    <option value="3">április</option>
+                    <option value="4">május</option>
+                    <option value="5">június</option>
+                    <option value="6">július</option>
+                    <option value="7">augusztus</option>
+                    <option value="8">szeptember</option>
+                    <option value="9">okróber</option>
+                    <option value="10">november</option>
+                    <option value="11">december</option>
+                  </select>
+                </div>
+              </div>
               <div class="form-group">
                 <label for="name">Név<small class="compulsory">*</small></label>
                 <input
@@ -126,8 +171,9 @@
         <div class="col-3"></div>
       </div>
       <div class="bianco d-grid gap-2 d-md-flex justify-content-md-end">
-        <a href="./pages/bianco.html">
-          <button class="btn btn-outline-light">
+        <!-- <a href="./pages/bianco.html"> -->
+          <!-- remove class button -->
+          <button class="btn btn-outline-light biancobtn">
             Szabadon kitölthető nyomtatvány
           </button>
         </a>

@@ -7,3 +7,11 @@
 .compulsory {
     color: rgb(175, 0, 0);
 }
+
+.hidden {
+    display: none;
+}
+
+.yearAndMonthSelect {
+    background-color: #e1e1e1;
+}
