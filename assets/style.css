@@ -7,21 +7,37 @@
 .header,
 .footer {
     background-color: #555;
-    height: 5vh;
+    height: 8vh;
+}
+
+.header,
+.copyright {
+    color:#f0f8ff;
+}
+
+.apptitle {
+    margin-left: -10px;
 }
 
 .footer .biancobtn {
     display: none;
 }
 
-.footer {
-   padding: 5px;
-}
+/* .footer {
+   padding: 10px;
+} */
 
 .footer:hover .biancobtn {
     display: block;
 }
 
+.copyright {
+    margin-top: 10px;
+}
+
+.biancobtn {
+    padding-top: 10px;
+}
 
 .compulsory {
     color: rgb(175, 0, 0);
