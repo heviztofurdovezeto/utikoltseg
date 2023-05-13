@@ -4,6 +4,25 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.header,
+.footer {
+    background-color: #555;
+    height: 5vh;
+}
+
+.footer .biancobtn {
+    display: none;
+}
+
+.footer {
+   padding: 5px;
+}
+
+.footer:hover .biancobtn {
+    display: block;
+}
+
+
 .compulsory {
     color: rgb(175, 0, 0);
 }
