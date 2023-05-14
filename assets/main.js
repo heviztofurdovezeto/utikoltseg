@@ -122,7 +122,7 @@ const querySelections = document.querySelectorAll(".odselect");
 querySelections.forEach((input) => {
   input.addEventListener(
     "change",
-    // callback funkció átadása, hogy mi történjen a chaneg esemény bekövetkeztekor
+    // callback funkció átadása, hogy mi történjen a change esemény bekövetkeztekor
     handleDateChange
   );
 });
