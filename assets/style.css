@@ -23,10 +23,6 @@
     display: none;
 }
 
-/* .footer {
-   padding: 10px;
-} */
-
 .footer:hover .biancobtn {
     display: block;
 }
@@ -47,6 +43,6 @@
     display: none;
 }
 
-.yearAndMonthSelect {
+/* .yearAndMonthSelect {
     background-color: #e1e1e1;
-}
+} */
