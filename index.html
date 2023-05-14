@@ -34,7 +34,11 @@
                 <h2 class="apptitle">Útiköltség elszámolás készítése</h2>
               </div>
               <div class="col-3">
-                <img src="./images/icons-vector.svg" alt="carbill" height="50px">
+                <img
+                  src="./images/icons-vector.svg"
+                  alt="carbill"
+                  height="50px"
+                />
               </div>
             </div>
           </div>
@@ -52,52 +56,71 @@
           <p></p> -->
           <form action="">
             <div class="basedatas">
-
               <!-- Hidden year and month slection elements -->
-              <div class="hidden yearAndMonthSelect">
-                <div class="form-group">
-                  <label for="yearSelect">Adja meg a kívánt évet
-                    <small class="compulsory">*</small>
-                 </label>
-                  <input
-                    type="number"
-                    class="form-control print yearSelect odselect"
-                    id="yearSelect"
-                    min="2022"
-                    placeholder="Kérem, adja meg, hogy melyik évre tölti ki a nyomtatványt"
-                    required
-                  />
+              <div
+                class="hidden card border-warning-subtle yearAndMonthSelect text-warning my-2"
+              >
+                <div
+                  class="card-header bg-warning-subtle border-warning-subtle fw-bolder"
+                >
+                  Útiköltség elszámolás évének és hónapjának kiválasztása
                 </div>
-                <div class="form-group">
-                  <label for="monthSelect">Adja meg a kívánt hónapot
-                    <small class="compulsory">*</small>
-                  </label>
-                  <select
-                    type="text"
-                    class="form-select print monthSelect odselect"
-                    id="monthSelect"
-                    placeholder="Kérem, válassza ki, hogy melyik hónapra tölti ki a nyomtatványt"
-                    required
-                  >
-                    <option value="">Hónap kiválasztása</option>
-                    <option value="0">január</option>
-                    <option value="1">február</option>
-                    <option value="2">március</option>
-                    <option value="3">április</option>
-                    <option value="4">május</option>
-                    <option value="5">június</option>
-                    <option value="6">július</option>
-                    <option value="7">augusztus</option>
-                    <option value="8">szeptember</option>
-                    <option value="9">okróber</option>
-                    <option value="10">november</option>
-                    <option value="11">december</option>
-                  </select>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="form-group col-6">
+                      <label for="yearSelect"
+                        >Adja meg a kívánt évet
+                        <small class="compulsory">*</small>
+                      </label>
+                      <input
+                        type="number"
+                        class="form-control print yearSelect odselect text-warning border-warning-subtle mt-1"
+                        id="yearSelect"
+                        min="2022"
+                        placeholder="Kérem, adja meg, hogy melyik évre tölti ki a nyomtatványt"
+                        required
+                      />
+                    </div>
+                    <div class="form-group col-6">
+                      <label for="monthSelect"
+                        >Adja meg a kívánt hónapot
+                        <small class="compulsory">*</small>
+                      </label>
+                      <select
+                        type="text"
+                        class="form-select print monthSelect odselect text-warning border-warning-subtle mt-1"
+                        id="monthSelect"
+                        placeholder="Kérem, válassza ki, hogy melyik hónapra tölti ki a nyomtatványt"
+                        required
+                      >
+                        <option value="">Hónap kiválasztása</option>
+                        <option value="0">január</option>
+                        <option value="1">február</option>
+                        <option value="2">március</option>
+                        <option value="3">április</option>
+                        <option value="4">május</option>
+                        <option value="5">június</option>
+                        <option value="6">július</option>
+                        <option value="7">augusztus</option>
+                        <option value="8">szeptember</option>
+                        <option value="9">okróber</option>
+                        <option value="10">november</option>
+                        <option value="11">december</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer bg-transparent border-warning-subtle">
+                  <small class="text-secondary">
+                    Ha kell, akkor ITT legyen a leírása az év és hónap
+                    kiválasztásának.
+                  </small>
                 </div>
               </div>
               <!-- Normal form elements which are visible, not hidden -->
               <div class="form-group">
-                <label for="name">Név
+                <label for="name"
+                  >Név
                   <small class="compulsory">*</small>
                 </label>
                 <input
@@ -109,7 +132,8 @@
                 />
               </div>
               <div class="form-group">
-                <label for="city">Település
+                <label for="city"
+                  >Település
                   <small class="compulsory">*</small>
                 </label>
                 <input
@@ -121,7 +145,8 @@
                 />
               </div>
               <div class="form-group">
-                <label for="address">Postacím
+                <label for="address"
+                  >Postacím
                   <small class="compulsory">*</small>
                 </label>
                 <input
@@ -133,7 +158,8 @@
                 />
               </div>
               <div class="form-group">
-                <label for="homeWorkDistance">Távolság
+                <label for="homeWorkDistance"
+                  >Távolság
                   <small class="compulsory">*</small>
                 </label>
                 <input
@@ -206,7 +232,9 @@
                 <div class="copyright">&copy; Hetesi Roland - 2023</div>
               </div>
               <div class="col-6">
-                <div class="bianco d-grid gap-2 d-md-flex justify-content-md-end">
+                <div
+                  class="bianco d-grid gap-2 d-md-flex justify-content-md-end"
+                >
                   <!-- toggle class button -->
                   <button class="btn btn-outline-light biancobtn">
                     Kitöltés évének és hónapjának kiválasztása
@@ -218,7 +246,6 @@
           <div class="col-3 col-md-2 col-sm-1"></div>
         </div>
       </div>
-      
     </footer>
 
     <!-- JS scripts: bootstrap, jspdf, jspdf-autotable & app main -->
