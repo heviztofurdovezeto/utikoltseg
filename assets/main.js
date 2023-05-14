@@ -147,12 +147,27 @@ printButton.addEventListener("click", function () {
 
   let homeWorkDistance = document.querySelector("input.homeWorkDistance").value;
 
-  let tableRowSum = homeWorkDistance * pricePerKm * 2;
+  //Itt kell kikeresni a pricePerKm aktuális értékét
+  let actualPricePerKmKey;
+  let actualPricePerKm;
+  let queryDate = `${viewMonth.getFullYear()}0${viewMonth.getMonth() + 1}01`;
+
+  let yearlyKmPrices = Object.keys(pricePerKm);
+
+  actualPricePerKmKey = yearlyKmPrices.findLast(
+    (element) => queryDate >= element
+  );
+
+  actualPricePerKm = pricePerKm[actualPricePerKmKey];
+
+  // let tableRowSum = homeWorkDistance * pricePerKm * 2;
+  let tableRowSum = homeWorkDistance * actualPricePerKm * 2;
 
   fillBaseDatas();
   fillDates(datesArray);
 
-  let sumTotal = datesArray.length * homeWorkDistance * pricePerKm * 2;
+  // let sumTotal = datesArray.length * homeWorkDistance * pricePerKm * 2;
+  let sumTotal = datesArray.length * homeWorkDistance * actualPricePerKm * 2;
 
   new Date(datesArray[datesArray.length - 1]) > dateModule.today
     ? (printDate = new Date(datesArray[datesArray.length - 1]))
