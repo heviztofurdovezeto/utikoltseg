@@ -32,19 +32,18 @@ const basedatas = {
 };
 
 // select some HTML element
-const ynmselbtn = document.querySelector(".biancobtn");
+const yearAndMonthSelectionButton = document.querySelector(".biancobtn");
 const printButton = document.querySelector(".printbutton");
 const queryYear = document.querySelector(".yearSelect");
-const queryMonth = document.querySelector(".monthSelect");
-// const querySelections = document.querySelectorAll(".odselect");
-queryYear.defaultValue = new Date().getFullYear();
-const ds = document.querySelector(".yearAndMonthSelect");
+const dateSelection = document.querySelector(".yearAndMonthSelect");
 
-const tDSelect = () => {
-  ds.classList.toggle("hidden");
+queryYear.defaultValue = new Date().getFullYear();
+
+const toggleDateSelect = () => {
+  dateSelection.classList.toggle("hidden");
 };
 
-ynmselbtn.addEventListener("click", tDSelect);
+yearAndMonthSelectionButton.addEventListener("click", toggleDateSelect);
 
 // Arrow function to add the selected month's dates w/ checkboxes to HTML
 const addFullMonth = (month) => {
