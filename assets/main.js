@@ -158,7 +158,7 @@ printButton.addEventListener("click", function () {
     (element) => queryDate >= element
   );
 
-  actualPricePerKm = pricePerKm[actualPricePerKmKey];
+  actualPricePerKm = pricePerKm[actualPricePerKmKey].price;
 
   // let tableRowSum = homeWorkDistance * pricePerKm * 2;
   let tableRowSum = homeWorkDistance * actualPricePerKm * 2;
