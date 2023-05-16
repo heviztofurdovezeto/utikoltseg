@@ -160,6 +160,8 @@ printButton.addEventListener("click", function () {
 
   actualPricePerKm = pricePerKm[actualPricePerKmKey].price;
 
+  const actualLegal = pricePerKm[actualPricePerKmKey].legal;
+
   // let tableRowSum = homeWorkDistance * pricePerKm * 2;
   let tableRowSum = homeWorkDistance * actualPricePerKm * 2;
 
@@ -197,6 +199,7 @@ printButton.addEventListener("click", function () {
     basedatas: basedatas,
     ptable: ptable,
     printDate: printDate,
+    legal: actualLegal,
   };
 
   printPdf(printObject);

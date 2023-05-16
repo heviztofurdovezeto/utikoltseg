@@ -1,13 +1,11 @@
 * {
     box-sizing: border-box;
-    /* margin: 0.2rem; */
     font-family: Arial, Helvetica, sans-serif;
 }
 
 .header,
 .footer {
     background-color: #555;
-    /* height: 8vh; */
     height: 3.5rem;
 }
 
