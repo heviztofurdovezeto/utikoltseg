@@ -150,7 +150,9 @@ printButton.addEventListener("click", function () {
   //Itt kell kikeresni a pricePerKm aktuális értékét
   let actualPricePerKmKey;
   let actualPricePerKm;
-  let queryDate = `${viewMonth.getFullYear()}0${viewMonth.getMonth() + 1}01`;
+  let queryDate;
+  
+  viewMonth.getMonth()+1 > 9 ? queryDate = `${viewMonth.getFullYear()}${viewMonth.getMonth() + 1}01` : queryDate = `${viewMonth.getFullYear()}0${viewMonth.getMonth() + 1}01`;
 
   let yearlyKmPrices = Object.keys(pricePerKm);
 
